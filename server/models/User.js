@@ -28,7 +28,7 @@ module.exports.seedInitialUsers = function(){
             var salt,
                 hasedPwd;
             salt = encryption.generateSalt();
-            hasedPwd = encryption.generateHashedPassword( salt, 'alex' );
+            hasedPwd = encryption.generateHashedPassword( salt, 'golqmsiej' );
             User.create( { username: 'alex', firstName: 'Alexander', lastName: 'Yordanov', salt: salt, hashPass: hasedPwd, roles: ['admin'] });
             salt = encryption.generateSalt();
             hasedPwd = encryption.generateHashedPassword( salt, 'pesho' );

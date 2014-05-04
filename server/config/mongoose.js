@@ -4,6 +4,7 @@
 
 module.exports = function(config){
     mongoose.connect(config.db);
+    console.log(config.db);
 
     var db = mongoose.connection;
     db.once( 'open', function ( err ) {
