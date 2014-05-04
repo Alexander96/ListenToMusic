@@ -1,4 +1,4 @@
-﻿app.factory('VoteResource', function(identity, auth, PlaylistCreateResource){
+﻿app.factory('VoteResource', function(identity, auth, PlaylistCreateResource, notifier){
     return{
     Upvote :function(playlist){
         if(!identity.isAuthenticated())
@@ -11,6 +11,7 @@
                     playlist.rate++;
                     PlaylistCreateResource.update(playlist).then(function(){
                         console.log(identity.currentUser);
+                        notifier.success("You voted for " + playlist.title);
                     });
                 });
             }else{
@@ -20,6 +21,7 @@
                         playlist.rate++;
                         PlaylistCreateResource.update(playlist).then(function(){
                             console.log(identity.currentUser);
+                            notifier.success("You voted for " + playlist.title);
                         });
                     });
                 }
@@ -37,7 +39,7 @@
                     auth.update(identity.currentUser).then(function(){
                         playlist.rate--;
                         PlaylistCreateResource.update(playlist).then(function(){
-                        
+                            notifier.success("You down voted for " + playlist.title);
                         });
                     });
                 } else {
@@ -46,7 +48,7 @@
                         auth.update(identity.currentUser).then(function(){
                             playlist.rate--;
                             PlaylistCreateResource.update(playlist).then(function(){
-                        
+                                notifier.success("You down voted for " + playlist.title);
                             });
                         });
                     }
