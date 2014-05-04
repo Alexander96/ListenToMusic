@@ -1,6 +1,6 @@
 ﻿app.controller('PlaylistDetailsController', function($scope, $routeParams, $sce, CachedPlaylists, identity, auth, VoteResource ){
     
-    var adds = '&autoplay=1&modestbranding=1';
+    var adds = '&autoplay=1&loop=1&modestbranding=1';
     var vid = [];
     $scope.identity = identity;
     $scope.Upvote = VoteResource.Upvote;
