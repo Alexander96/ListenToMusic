@@ -1,0 +1,32 @@
+﻿.container
+    .well
+        .row
+            .col-md-6
+                form.form-horizontal(name="formPlaylist" id="formAddPlaylist")
+                    legend Edit {{playlist.title}}
+                    .form-group
+                        label.col-md-2(for="title") Title
+                        .col-md-10
+                            input.form-control(type="text" id="title" required="required" placeholder="Title" ng-model="playlist.title")
+                    .form-group
+                        label.col-md-2(for="cover") Cover
+                        .col-md-10
+                            input.form-control(type="url" id="cover" required="required" placeholder="Cover Url" ng-model="playlist.cover")
+                    div(ng-repeat="video in playlist.videos")
+                        .form-group
+                            label.col-md-2(for="{{video.title}}") Video title
+                            .col-md-10
+                                input.form-control.videoTitle(type="text"  value="{{video.title}}" ng-value="video.title" required="required" placeholder="Video title")
+                        .form-group
+                            label.col-md-2(for="videoUrl") Video Url
+                            .col-md-10
+                                input.form-control.videoUrl(type="url" value="https://www.youtube.com/watch?v={{video.id}}" required="required" placeholder="Video Url" )
+                .form-group.pull-right
+                    button.btn.btn-warning(ng-click="addVideoInput()") Add More Video
+                .row
+                    .col-md-12
+                        .pull-right
+                            button.btn.btn-primary(ng-disabled="formPlaylist.$invalid" ng-click="edit(playlist)" style="margin-right:5px") Save
+                            a.btn.btn-primary(href="#/") Cancel
+            .col-md-6.image-container
+                img(ng-src="{{playlist.cover}}" src="")

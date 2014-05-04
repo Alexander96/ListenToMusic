@@ -3,17 +3,17 @@ block main-content
     header.navbar-fixed-top.navbar-inverse
         .container
             .navbar-header
-                a.navbar-brand(href="#/") Explore Music
+                a.navbar-brand(href="/") Explore Music
             .navbar-collapse.collapse
                 ul.nav.navbar-nav
                     li
-                        a(href="#/") Home
+                        a(href="/") Home
                     li
-                        a(href="#/all-playlists") All playlist
+                        a(href="/all-playlists") All playlist
                     li
-                        a(href="#/repeat-video") Repeat one video
+                        a(href="/repeat-video") Repeat one video
                     li
-                        a(href="#/about") About
+                        a(href="/about") About
                 div(ng-include="'partials/account/login'")
     section
         div(ng-view)

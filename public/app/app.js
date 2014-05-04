@@ -1,7 +1,7 @@
 ﻿var app = angular.module('app', ['ngResource', 'ngRoute']).value('toastr', toastr);
 
 app.config(function($routeProvider, $locationProvider){
-    //$locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
     var routeUserCheck = {
         adminRole: {
@@ -38,6 +38,11 @@ app.config(function($routeProvider, $locationProvider){
             controller: 'YourPlaylists',
             resolve: routeUserCheck.authenticated
         })
+        .when('/your-playlists/edit/:id', {
+            templateUrl : '/partials/playlists/edit-playlist',
+            controller: 'EditPlaylistController',
+            resolve: routeUserCheck.authenticated
+        })
         .when('/add-playlist', {
             templateUrl : '/partials/playlists/add-playlist',
             controller: 'AddPlaylistController',
@@ -46,14 +51,6 @@ app.config(function($routeProvider, $locationProvider){
         .when('/about', {
             templateUrl : '/partials/main/about',
             controller: 'AboutController'
-        })
-        .when('/courses', {
-            templateUrl : '/partials/courses/courses-list',
-            controller: 'CoursesListController'
-        })
-        .when('/courses/:id', {
-            templateUrl : '/partials/courses/course-details',
-            controller: 'CourseDetailsController'
         })
         .when('/signup', {
             templateUrl: '/partials/account/signup',

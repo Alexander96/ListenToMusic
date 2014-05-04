@@ -43,4 +43,15 @@ module.exports = {
             res.send({success: true});
         });
     },
+    updatePlaylist: function(req, res, next){
+        var updatedPlaylist = req.body;
+        Playlist.update({_id: req.body._id}, updatedPlaylist, function(err){
+            if(err){
+                console.log('Failed to update playlist' + err);
+                return
+            }
+            console.log('Plalist updated!');
+            res.end();
+        });
+    },
 }

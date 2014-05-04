@@ -5,10 +5,10 @@
         i++;
         while(i < this.length){
             if(i != this.length - 1){
-                str+= this[i++];
+                str+= this[i++] + ','
             }
             else{
-                str+= this[i++] + ',';
+                str+= this[i++];
             }
         }
         return str
@@ -16,10 +16,10 @@
     if(index + 1 === this.length){
         while(i < this.length){
             if(i + 2 == this.length){
-                str+= this[i];
+                str+= this[i++];
                 return str;
             }
-            str+= this[i] + ',';
+            str+= this[i++] + ',';
         }
     }
     while(i < this.length){

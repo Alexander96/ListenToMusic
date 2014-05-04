@@ -11,10 +11,9 @@ module.exports = function (app) {
                beautify: true,
         });
     });
-    app.get('/api/courses', controllers.courses.getAllCourses);
-    app.get('/api/courses/:id', controllers.courses.getCourseById);
     app.get('/api/playlists', controllers.playlists.getAllPlaylists);
     app.post('/api/playlists', controllers.playlists.createPlaylist);
+    app.put('/api/playlists', auth.isAuthenticated, controllers.playlists.updatePlaylist);
     app.get('/api/playlists/:id', controllers.playlists.getPlaylistById);
     app.get('/api/your-playlists/:username', controllers.playlists.getPlaylistsByUsername);
     app.post('/login',auth.login);

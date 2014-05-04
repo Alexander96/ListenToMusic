@@ -11,6 +11,12 @@
         },
         isAuthorizedForRole: function(role){
             return !!this.currentUser && this.currentUser.roles.indexOf(role) > -1;
+        },
+        update:function(){
+            if($window.bootstrappedUserObject){
+                user = new UsersResource();
+                angular.extend(user, $window.bootstrappedUserObject);
+            }
         }
     }
 });

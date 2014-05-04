@@ -1,6 +1,5 @@
 ﻿var mongoose = require('mongoose'),
     user = require('../models/User.js'),
-    course = require('../models/Course.js'),
     playlist = require('../models/Playlist.js');
 
 module.exports = function(config){
@@ -16,7 +15,6 @@ module.exports = function(config){
     });
 
     user.seedInitialUsers();
-    course.seedInitialCourses();
     playlist.seedInitialPlaylist();
    
 }

@@ -8,19 +8,19 @@
                 h3 Discover, create, enjoy.
         .row
             .col-md-6
-                img(style="max-height:300px" src="http://cdn.alltheragefaces.com/img/faces/svg/neutral-feel-like-a-sir.svg")
+                img(style="max-height:400px" src="http://cdn.alltheragefaces.com/img/faces/svg/neutral-feel-like-a-sir.svg")
             .col-md-6
                 h3 The 
                     strong hottest 
                     | playlist!
                 .row(style="margin-top:10px")
                     .col-md-12
-                        .well(style="max-height:360px; min-height:360px")
+                        .well(style="min-height:360px")
                             .row
                                 .col-md-12
                                     .row
                                         .col-md-4
-                                            h5
+                                            h3
                                                 a(href="#/playlists/{{playlist._id}}")
                                                         strong {{ playlist.title | uppercase }}
                                             .row
@@ -57,6 +57,6 @@
     .row
         .col-md-12
             .h2
-                strong Lates Created
+                strong Latest Created/Modified
             .jumbotron
                 div(ng-include="'partials/main/latest-playlists'")
