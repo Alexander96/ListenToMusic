@@ -3,7 +3,7 @@
         .well
             form.form-horizontal(name="signUpForm")
                 fieldset
-                    legend Create new user
+                    legend Sign up now
                     .form-group
                         label.col-md-2(for="firstName") First Name
                         .col-md-10
@@ -28,5 +28,5 @@
                                 span.msg-error(ng-show="signUpForm.pw2.$error.pwmatch" style="color:red")
                                     | Passwords don't match.
                     .pull-right
-                        button.btn.btn-primary(ng-disabled="signUpForm.$invalid" ng-click="signup(user)") Register
+                        button.btn.btn-primary(ng-disabled="signUpForm.$invalid" ng-click="signup(user)" style="margin-right:5px") Register
                         a.btn.btn-primary(href="#/") Cancel
