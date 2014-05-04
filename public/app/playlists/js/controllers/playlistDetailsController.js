@@ -16,8 +16,13 @@
                 for(var i=0;i < playlist.videos.length; i++){
                     vid.push(playlist.videos[i].id.toString());
                 }
-                //$scope.code = playlist.videos[0].id; //+ '&autoplay=1?modestbranding=1';
-                $scope.code = vid[0] + "?playlist=" + vid.joinWithoutEl(0) + adds;
+                if($routeParams.song){
+                    $scope.changeVideo($routeParams.song);
+                }
+                else{
+                    //$scope.code = playlist.videos[0].id; //+ '&autoplay=1?modestbranding=1';
+                    $scope.code = vid[0] + "?playlist=" + vid.joinWithoutEl(0) + adds;
+                }
             }
         });
         

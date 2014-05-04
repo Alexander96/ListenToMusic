@@ -42,7 +42,7 @@
                             .col-md-12
                                 ul.list-group
                                     li.list-group-item(ng-repeat="video in playlist.videos | limitTo: 3")
-                                        div.song-li(ng-click="") {{video.title}}
+                                        a.song-li(href="#/playlists/{{playlist._id}}/{{video.id}}") {{video.title}}
                                     li.list-group-item(ng-show="playlist.video.length > 3") ...
                         .row
                             .col-md-8

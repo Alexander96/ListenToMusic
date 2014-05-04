@@ -29,6 +29,10 @@ app.config(function($routeProvider, $locationProvider){
             templateUrl : '/partials/playlists/playlist-details',
             controller: 'PlaylistDetailsController'
         })
+        .when('/playlists/:id/:song', {
+            templateUrl : '/partials/playlists/playlist-details',
+            controller: 'PlaylistDetailsController'
+        })
         .when('/repeat-video', {
             templateUrl : '/partials/playlists/repeat-video',
             controller: 'RepeatVideoController'
