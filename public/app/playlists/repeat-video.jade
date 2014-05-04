@@ -1,0 +1,15 @@
+﻿.container
+    .row
+        .col-md-3
+        .col-md-6
+            .row
+                form(name="formVideo")
+                    .col-md-9
+                        input.form-control(placeholder="Place youtube vide url" required="required" ng-model="url")
+                    .col-md-2
+                        button.btn.btn-primary(ng-click="playVideo(url)" ng-disabled="formVideo.$invalid") Play
+                    .col-md-1
+            .row(style="margin:10px 0px 10px 0px")
+                .col-md-12
+                    div(ng-show="isClicked" my-youtube code="code")
+        .col-md-3

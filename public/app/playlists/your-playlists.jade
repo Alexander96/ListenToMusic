@@ -1,0 +1,51 @@
+﻿.container
+    .row
+        .form-group
+            .col-md-10.pull-right
+                .col-md-3
+                    label.pull-right(style="padding-top:5px") Search
+                .col-md-5
+                    input.form-control(type="text" placeholder="Search by Album or Song name" ng-model="searchAlbum")
+                .col-md-4
+                    .col-md-4
+                        label(style="padding-top:5px") Sort by
+                    .col-md-8
+                        select.form-control(ng-model="sort")
+                            option(value=" " ng-selected="'true'") Default
+                            option(value="title") Title
+                            option(value="rate") Rating
+                            option(value="-published") Newest
+    .row(style="margin-top:10px")
+        .col-md-3(ng-repeat="playlist in playlists | filter: searchAlbum | orderBy: sort")
+            .well(style="max-height:360px; min-height:360px")
+                .row
+                    .col-md-12
+                        .row
+                            .col-md-4
+                                h5
+                                    a(href="#/playlists/{{playlist._id}}")
+                                            strong {{ playlist.title | uppercase }}
+                                .row
+                                    .col-md-12(style="margin-bottom:5px")
+                                        span.label.label-info(style="padding-left:5px;")
+                                            | rate:
+                                        strong(style="padding-left:5px;margin-top-2px;") {{playlist.rate}}
+                                .row
+                                    .col-md-4
+                                        button.label.label-danger(ng-click='Upvote(playlist)') Up
+                                    .col-md-6
+                                        button.label.label-danger.pull-left(ng-click='DownVote(playlist)' style="margin-top:2px") Down
+                            .col-md-8.image-container
+                                a(href="#/playlists/{{playlist._id}}")
+                                    img(src="" ng-src="{{playlist.cover}}")
+                        .row(style="margin-top:5px")
+                            .col-md-12
+                                ul.list-group
+                                    li.list-group-item(ng-repeat="video in playlist.videos | limitTo: 3")
+                                        div.song-li(ng-click="") {{video.title}}
+                                    li.list-group-item(ng-show="playlist.video.length > 3") ...
+                        .row
+                            .col-md-8
+                                div by user: {{playlist.username}}
+                            .col-md-4
+                                a.btn.btn-primary.btn-xs.pull-right(href="#/playlists/{{playlist._id}}") Listen Now

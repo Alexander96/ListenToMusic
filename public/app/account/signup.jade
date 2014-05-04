@@ -1,0 +1,32 @@
+﻿.row
+    .col-md-6
+        .well
+            form.form-horizontal(name="signUpForm")
+                fieldset
+                    legend Create new user
+                    .form-group
+                        label.col-md-2(for="firstName") First Name
+                        .col-md-10
+                            input.form-control(type="text" required="required" placeholder="First Name" ng-model="user.firstName")
+                    .form-group
+                        label.col-md-2(for="lastName") Last Name
+                        .col-md-10
+                            input.form-control(type="text" required="required" placeholder="Last Name" ng-model="user.lastName")
+                    .form-group
+                        label.col-md-2(for="username") User Name
+                        .col-md-10
+                            input.form-control(type="text" required="required" placeholder="User Name" ng-model="user.username")
+                    .form-group
+                        label.col-md-2(for="password") Password
+                        .col-md-10
+                            input.form-control(type="password" id="pw1" name="pw1" ng-model="user.password" ng-required="" placeholder="Password")
+                    .form-group
+                        label.col-md-2(for="password1") Confirm Password
+                        .col-md-10
+                             input.form-control(type="password" id="pw2" name="pw2" ng-model="user.password1" ng-required="" pw-check="pw1" placeholder="Confirm password")
+                             div.msg-block(ng-show="signUpForm.$error")
+                                span.msg-error(ng-show="signUpForm.pw2.$error.pwmatch" style="color:red")
+                                    | Passwords don't match.
+                    .pull-right
+                        button.btn.btn-primary(ng-disabled="signUpForm.$invalid" ng-click="signup(user)") Register
+                        a.btn.btn-primary(href="#/") Cancel
