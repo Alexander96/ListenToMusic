@@ -7,6 +7,10 @@
     "name": "Alex",
     "email": ""
   },
+  "engines":{
+	"node": "0.10.x",
+	"npm": "1.4.x"
+  },
   "dependencies": {
     "express": "^3.5.2",
     "mongoose": "^3.8.8",
