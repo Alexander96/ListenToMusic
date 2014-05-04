@@ -26,7 +26,6 @@
             title = titlesVid[i].value;
             if(url == "" || title == "")
                 continue;
-            console.log(title)
             var id = '';
             var take = false;
             for(var j=0; j<url.length;j++){
@@ -40,7 +39,6 @@
             title= '';
             url = '';
         }
-        console.log(newPlaylist);
         PlaylistCreateResource.create(newPlaylist).then(function(response){
                 notifier.success('Playlist created successfully!');
                 CachedPlaylists.update();

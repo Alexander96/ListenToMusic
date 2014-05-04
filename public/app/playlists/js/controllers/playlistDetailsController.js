@@ -16,7 +16,6 @@
                 for(var i=0;i < playlist.videos.length; i++){
                     vid.push(playlist.videos[i].id.toString());
                 }
-                console.log(vid.joinWithoutEl(0));
                 //$scope.code = playlist.videos[0].id; //+ '&autoplay=1?modestbranding=1';
                 $scope.code = vid[0] + "?playlist=" + vid.joinWithoutEl(0) + adds;
             }

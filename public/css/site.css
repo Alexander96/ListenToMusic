@@ -35,3 +35,9 @@ input.ng-dirty.ng-invalid {
 input.ng-dirty.ng-valid {
   border: 1px solid #008000;
 }
+.new-playlist:hover {
+  background-color: #c1c1c1;
+}
+.new-playlist:hover img {
+  cursor: pointer;
+}

@@ -32,7 +32,7 @@
                     angular.extend(user, response.user);
                     identity.currentUser = user;
                     deferred.resolve(true);
-                    console.log(response.user);
+                    //console.log(response.user);
                 }
                 else {
                     deferred.resolve(false);
