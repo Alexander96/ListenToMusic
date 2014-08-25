@@ -9,7 +9,8 @@ module.exports = function ( app, config ) {
     app.set( 'view engine', 'jade' );
     app.set( 'views', config.rootPath + '/server/views' );
     app.use( cookieParser() );
-    app.use( bodyParser() );
+    app.use(express.multipart());
+    app.use( bodyParser({ keepExtensions: true, uploadDir: __dirname + '/public/img' }) );
     app.use( session({secret: 'magicunicorn'}) );
     app.use( stylus.middleware( {
         src: config.rootPath + '/public', // .styl files are located in `views/stylesheets`

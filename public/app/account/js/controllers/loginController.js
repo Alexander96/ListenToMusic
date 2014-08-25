@@ -1,15 +1,6 @@
-﻿app.controller('LoginController', function($scope, $route, $http, notifier, $location, identity, auth){
+﻿app.controller('LoginController', function($scope, $route, $http, 
+    notifier, $location, identity, auth, $modal, $log){
     $scope.identity = identity;
-    $scope.login = function(user){
-        auth.login(user).then(function(success){
-            if(success){
-                notifier.success('Successful login!');
-            }
-            else{
-                notifier.error('Username or Password not matched!');
-            }
-        });
-    };
     $scope.logout = function(){
         auth.logout().then(function(){
             notifier.success('Successfully logout!');
@@ -21,4 +12,20 @@
             location.reload();
         });
     }
+
+    $scope.open = function () {
+
+        var modalInstance = $modal.open({
+            templateUrl: '/partials/account/login',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
 });

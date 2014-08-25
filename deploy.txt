@@ -1,0 +1,3 @@
+http://listenmusicapp.herokuapp.com/ here is the url of my deployed app. Only the vote system does not work correctly.
+I don't know why because on localhost, it has no problems.
+git repo - https://github.com/Alexander96/ListenToMusic

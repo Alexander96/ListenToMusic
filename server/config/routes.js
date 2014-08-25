@@ -6,13 +6,17 @@ module.exports = function (app) {
     app.get('/api/users', auth.isInRole('admin'),controllers.users.getAllUsers );
     app.post('/api/users', controllers.users.createUser);
     app.put('/api/users',auth.isAuthenticated, controllers.users.updateUser);
+    app.get('/img/:img', function(req, res){
+        res.send('../../public/img/' + req.params.img);
+    })
     app.get('/partials/:partialArea/:partialName', function (req, res) {
         res.render('../../public/app/' + req.params.partialArea + '/' + req.params.partialName, {
                beautify: true,
         });
     });
     app.get('/api/playlists', controllers.playlists.getAllPlaylists);
-    app.post('/api/playlists', controllers.playlists.createPlaylist);
+    app.post('/api/playlists', auth.isAuthenticated, controllers.playlists.createPlaylist);
+    app.post('/api/playlists/post-img', controllers.playlists.uploadImg)
     app.put('/api/playlists', auth.isAuthenticated, controllers.playlists.updatePlaylist);
     app.get('/api/playlists/:id', controllers.playlists.getPlaylistById);
     app.get('/api/your-playlists/:username', controllers.playlists.getPlaylistsByUsername);

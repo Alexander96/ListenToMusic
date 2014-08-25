@@ -19,7 +19,6 @@
         var newPlaylist = {};
         newPlaylist._id = playlist._id;
         newPlaylist.title = playlist.title;
-        newPlaylist.cover = playlist.cover;
         newPlaylist.published = new Date();
         newPlaylist.username = playlist.username;
         newPlaylist.rate = playlist.rate;

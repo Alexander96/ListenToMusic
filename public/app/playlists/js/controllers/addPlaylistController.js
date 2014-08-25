@@ -1,4 +1,4 @@
-﻿app.controller('AddPlaylistController', function($scope, identity, $location, notifier, PlaylistCreateResource, CachedPlaylists){
+﻿app.controller('AddPlaylistController', function($scope,$http, identity, $location, notifier, PlaylistCreateResource, CachedPlaylists){
     $scope.addVideoInput = function(){
         var playlistTitle = $('#title').val();
         var playlistCover = $('#cover').val();
@@ -11,7 +11,7 @@
     $scope.createPlaylist = function(playlist){
         var newPlaylist = {};
         newPlaylist.title = playlist.title;
-        newPlaylist.cover = playlist.cover;
+        newPlaylist.cover = '';
         newPlaylist.published = new Date();
         newPlaylist.username = identity.currentUser.username;
         newPlaylist.rate = 0;
@@ -41,8 +41,10 @@
         }
         PlaylistCreateResource.create(newPlaylist).then(function(response){
                 notifier.success('Playlist created successfully!');
+                $("#form-cover").submit();
                 CachedPlaylists.update();
-                $location.path('/your-playlists');
-            });
+                //$location.path('/your-playlists');
+        });
+
     }
 });

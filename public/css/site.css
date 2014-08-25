@@ -10,6 +10,20 @@ body {
 .toast-top-right {
   margin-top: 50px;
 }
+.mid-page {
+  margin: 0 auto;
+  max-width: 500px;
+}
+.mid-login {
+  margin: 0 auto;
+  max-width: 410px;
+}
+.label-login {
+  margin-top: 5px;
+}
+.invalid-pass {
+  color: #f00;
+}
 footer {
   padding-left: 100px;
   padding-right: 100px;
@@ -40,4 +54,7 @@ input.ng-dirty.ng-valid {
 }
 .new-playlist:hover img {
   cursor: pointer;
+}
+.login-input {
+  max-width: 250px;
 }

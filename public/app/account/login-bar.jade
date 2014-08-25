@@ -1,0 +1,19 @@
+﻿.navbar-right(ng-controller="LoginController")
+    button.btn.btn-primary(ng-click="open()" style="margin-right:2px" ng-show="!identity.isAuthenticated()") Login
+    a.btn.btn-primary(href="#/signup" ng-show="!identity.isAuthenticated()") Sign Up
+    ul.nav.navbar-nav.navbar-right(ng-show="identity.isAuthenticated()")
+        li.dropdown
+            a.dropdown-toggle(href="" data-toggle="dropdown")
+                | {{ identity.currentUser.firstName + ' ' + identity.currentUser.lastName }}
+                span.caret
+                ul.dropdown-menu
+                    li(ng-show="identity.currentUser.isAdmin()")
+                        a(href="#/admin/users") Users
+                    li
+                        a(href="#/add-playlist") Add playlist
+                    li
+                        a(href="#/your-playlists") Your playlists
+                    li(ng-show="identity.isAuthenticated()")
+                        a(href="#/profile") Profil
+                    li
+                        a(href="/" ng-click="logout()") Sign Out

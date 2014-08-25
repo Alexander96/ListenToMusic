@@ -2,16 +2,18 @@
     .well
         .row
             .col-md-6
-                form.form-horizontal(name="formPlaylist" id="formAddPlaylist")
+                form.form-horizontal(id="form-cover" name="form-cover" action="/api/playlists/post-img", method="POST", enctype="multipart/form-data")
                     legend Create new playlist
+                    .form-group
+                        label.col-md-2(for="cover") Cover
+                        .col-md-10
+                            input(type="file" name="image")
+                form.form-horizontal(name="formPlaylist" id="formAddPlaylist")
+
                     .form-group
                         label.col-md-2(for="title") Title
                         .col-md-10
                             input.form-control(type="text" id="title" required="required" placeholder="Title" ng-model="playlist.title")
-                    .form-group
-                        label.col-md-2(for="cover") Cover
-                        .col-md-10
-                            input.form-control(type="url" id="cover" required="required" placeholder="Cover Url" ng-model="playlist.cover")
                     .form-group
                         label.col-md-2(for="videoTitle") Video title
                         .col-md-10
